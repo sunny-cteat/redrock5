@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        font-family: arial; 
+    }
+/* 设置header底部的细横线 */
+    hr {
+        border-width: 1px 0 0 ;
+        border-color: rgba(0,0,0,.1);
+    }
+    body {
+        overflow-y: scroll;  /* 让页面有默认的滚动条 */
+        min-height: 100%;   /* 12-14行与16-22都是为了在不用position的情况下使页面底部的那块footer始终居于页面底部，强烈建议使用position来完成这步工作 */
+        display: flex;
+        flex-direction: column;
+    }
+    #content {
+        flex: 1;
+        min-height: 450px;
+    }
+    html {
+        height: 100%;
+    }
+    #header {
+        height: 32px;
+        min-width: 1000px; /* 设置min-width是为了防止页面放过大时父元素宽度不够导致 header-left与header-right显示bug*/
+    }
+    #header button{
+        height: 32px;
+        width: 80px;
+        background: none;
+        background-color: black;
+        border: white;
+    }
+    .logo {
+        width: 640px;  /* 为了使用margin:0 auto来居中所以得设置宽度 */
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+    .logo img {
+        margin-top: 72px;
+        margin-bottom: 19px;
+    }
+    .search {
+        width: 640px;
+        height: 40px;
+        margin: 0 auto;
+    }
+    input {
+        width: 480px;
+        height: 20px;
+        padding: 9px 48px 9px 7px;
+        border-width: 1px ;
+        border-color: rgba(0,0,0,.3);          /* 92-93行为input边框设置细线 */
+        border-bottom-color: rgba(0,0,0,.2);
+        float: left;
+    }
+    .camera {
+        float: left;
+        margin-left: -30px;
+        margin-top: 12px;
+        width: 18px;
+        height: 16px;
+        background-image: url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/soutu/img/camera_new_5606e8f.png); 
+        cursor: pointer; /* 设置鼠标移上时变成手指样式 */
+    }
+/* 设置鼠标移上后切换背景图显示的区域来模拟变色效果 */
+    .camera:hover {
+        background-position: 0 -20px; 
+    }
+    button {
+        float: left;
+        width: 102px;
+        height: 40px;
+        background-color: #3388FF;
+        color: white;
+        border: 0 transparent;   /* 设置无边框 */
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body id="body">
+    <div id="content">
+        <div id="header">
+            <button id="pink" onclick="changecolor()">换肤</button>
+            <button href="#" onclick="javascript:setfont('14px')">小</button>
+            <button href="#" onclick="javascript:setfont('16px')">中</button>
+            <button href="#" onclick="javascript:setfont('18px')">大</button>
+        </div>
+        <hr>
+        <p id="p1">百度一分钟，听人吹牛两小时</p>
+        <div id="mid">
+            <div class="logo">
+                <img src="https://www.baidu.com/img/bd_logo1.png?where=super" width="270" height="129">
+            </div>
+            <div class="search">
+                <input type="text">
+                <span class="camera"></span>
+                <button>百度一下</button>
+            </div>
+        </div>
+    </div>
+    <script src="work1.js"></script>
+</body>
+</html>
